@@ -9,6 +9,11 @@ ACCESS_TOKEN = 'EAADChD4ihzsBAGPYZBBvk7GmH6ZBGhut6oJ80kQK33MDycjfG5o2FdS367hHYVS
 VERIFY_TOKEN = '123456'
 bot = Bot(ACCESS_TOKEN)
 
+
+
+
+
+
 #We will receive messages that Facebook sends our bot at this endpoint 
 @app.route("/", methods=['GET', 'POST'])
 def receive_message():
@@ -21,11 +26,8 @@ def receive_message():
     else:
         # get whatever message a user sent the bot
         output = request.get_json()
-        print(type(output))
-        print(output)
-        for thing in output:
-            print(str(thing))
-            print(type(thing))
+        print()
+        print (request.__dict__)
         for event in output['entry']:
             messaging = event['messaging']
             for message in messaging:
