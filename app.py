@@ -20,12 +20,15 @@ def receive_message():
     #if the request was not get, it must be POST and we can just proceed with sending a message back to user
     else:
         # get whatever message a user sent the bot
-       output = request.get_json()
-       print(type(output))
-       print(output)
-       for event in output['entry']:
-          messaging = event['messaging']
-          for message in messaging:
+        output = request.get_json()
+        print(type(output))
+        print(output)
+        for thing in output:
+            print(str(thing))
+            print(type(thing))
+        for event in output['entry']:
+            messaging = event['messaging']
+            for message in messaging:
             if message.get('message'):
                 #Facebook Messenger ID for user so we know where to send response back to
                 recipient_id = message['sender']['id']
