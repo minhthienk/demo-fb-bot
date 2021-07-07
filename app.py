@@ -4,7 +4,7 @@ from flask import Flask, request
 from pymessenger.bot import Bot
 import os 
 app = Flask(__name__)
-ACCESS_TOKEN = 'EAADChD4ihzsBAPVL0Ig6xTB8ICz7CDQmZAiNQkkT26O9vvxZBnNrB5IAXnXOPypd12p4BRnZBYeqTudEbY05qaEUX2MEAogRKWzxtsSBMonRsj4SxCRoNaCZC6trs4UN3U9pHP3QSZAdBTPiDOuqNq1eJZAHwDraZAc7ZB31TGZAvT9ZAAM9ZAUDCtG'
+ACCESS_TOKEN = 'EAADChD4ihzsBAGPYZBBvk7GmH6ZBGhut6oJ80kQK33MDycjfG5o2FdS367hHYVSPQWrcCjZAZAnZBjAG6TDCuEthSgupCXxhpMJ86d0X2kF0L41ixKqST1q4VEG1Os1HZCnxiDPOZAkWsvSEnuGa8C5ae48PInhH26rkFZCkjQZB590HTSwVIsPUR'
 # English Exchange
 VERIFY_TOKEN = '123456'
 bot = Bot(ACCESS_TOKEN)
@@ -21,6 +21,8 @@ def receive_message():
     else:
         # get whatever message a user sent the bot
        output = request.get_json()
+       print(type(output))
+       print(output)
        for event in output['entry']:
           messaging = event['messaging']
           for message in messaging:
